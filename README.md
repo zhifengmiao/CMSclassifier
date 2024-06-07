@@ -16,12 +16,12 @@ pkgInstall("synapseClient")
 
 Both classifiers (Random forest and single sample) expect data formatted according to the example data set provided:
 ```
-library(synapseClient)
+library(synapser)
 library(CMSclassifier)
 
 synapseLogin()
 
-sampleData <- read.table(synGet("syn4983432")@filePath, sep="\t",header = TRUE,row.names = 1,check.names=FALSE)
+sampleData <- read.table(synGet("syn4983432")$path, sep="\t", header = TRUE, row.names = 1, check.names=FALSE)
 
 Rfcms <- CMSclassifier::classifyCMS(t(sampleData),method="RF")[[3]]
 SScms <- CMSclassifier::classifyCMS(t(sampleData),method="SSP")[[3]]
